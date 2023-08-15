@@ -1,0 +1,68 @@
+create table food_stock (
+  item_name character not null primary key,
+  Qty integer
+);
+
+create table manager (
+  id bigint not null primary key,
+  first_name character not null,
+  email character not null,
+  Role_desc character not null
+);
+
+create table service (
+  token character not null primary key
+);
+
+create table employee (
+  id bigint not null primary key,
+  first_name text not null,
+  email character not null,
+  role character not null,
+  salary bigint not null
+);
+
+create table customer (
+  id bigint not null primary key,
+  Name text not null,
+  email character not null,
+  bill bigint not null,
+  complaint character not null,
+  complaint_status character not null,
+  wallet bigint not null
+);
+
+create table game (
+  game_id bigint not null primary key,
+  Cust_id bigint references customer (id)
+);
+
+create table gym (
+  gym_id bigint not null primary key,
+  Cust_id bigint references customer (id)
+);
+
+create table room (
+  room_id bigint not null primary key,
+  Cust_id bigint references customer (id)
+);
+
+create table pool (
+  pool_id bigint not null primary key,
+  Cust_id bigint references customer (id)
+);
+
+create table massage (
+  massage_id bigint not null primary key,
+  Cust_id bigint references customer (id)
+);
+
+create table spa (
+  spa_id bigint not null primary key,
+  Cust_id bigint references customer (id)
+);
+
+create table car (
+  car_id bigint not null primary key,
+  Cust_id bigint references customer (id)
+);
